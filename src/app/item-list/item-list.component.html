@@ -1,0 +1,28 @@
+<!-- src/app/item-list/item-list.component.html -->
+<div class="container mt-5">
+  <h1>Item List</h1>
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search..."
+      [(ngModel)]="searchTerm"
+      (input)="filterItems()"
+    />
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" (click)="sortItems('asc')">
+      Sort Ascending
+    </button>
+    <button class="btn btn-secondary" (click)="sortItems('desc')">
+      Sort Descending
+    </button>
+  </div>
+  <ul class="list-group">
+    <li *ngFor="let item of filteredItems" class="list-group-item">
+      <h5>{{ item.title }}</h5>
+      <p>{{ item.description }}</p>
+      <p>{{ item.price }}$</p>
+    </li>
+  </ul>
+</div>
